@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import TestComponent from '../components/TestComponent'
+import TestComponent from './TestComponent'
 
 test('renders Tailwind Test heading', () => {
     render(<TestComponent />)

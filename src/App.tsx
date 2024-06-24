@@ -1,28 +1,14 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { QueryClientProvider } from '@tanstack/react-query'
+import AppRoutes from './routes/routes'
+import queryClient from './utils/QueryClient'
 
-const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            staleTime: 1000 * 60 * 60 * 24, // 24 horas
-            gcTime: 1000 * 60 * 60 * 24, // 24 horas
-        },
-    },
-})
-
-const App = () => {
+const App: React.FC = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <Router>
-                <Routes>
-                    <Route path="/" element={'Home'} />
-                    <Route path="/podcast/:podcastId" element={'Podcast'} />
-                    <Route
-                        path="/podcast/:podcastId/episode/:episodeId"
-                        element={'PodcastEpisode'}
-                    />
-                </Routes>
+                <AppRoutes />
             </Router>
         </QueryClientProvider>
     )
