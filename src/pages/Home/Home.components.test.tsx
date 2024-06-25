@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import { Podcast } from 'types/Podcast'
-import { PodcastList } from 'pages/Home/Home.components.tsx'
+import { PodcastList } from './Home.components.tsx'
 
 describe('PodcastList', () => {
     it('should render a list of podcasts correctly when provided with valid data', () => {

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import PodcastFilter from 'components/PodcastFilter'
-import { usePodcasts } from 'pages/Home/Home.hooks.ts'
-import { filterPodcasts } from 'pages/Home/Home.utils.ts'
-import { PodcastList } from 'pages/Home/Home.components.tsx'
+import { usePodcasts } from './Home.hooks.ts'
+import { filterPodcasts } from './Home.utils.ts'
+import { PodcastList } from './Home.components.tsx'
 
 export const Home = () => {
     const [filter, setFilter] = useState('')
