@@ -3,9 +3,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Podcast } from '../../types/podcast.ts'
 import { fetchPodcasts } from '../../api/podcasts.ts'
-import { PodcastFilter } from '../../components/PodcastFilter/PodcastFilter.tsx'
-import { PodcastCard } from '../../components/PodcastCard/PodcastCard.tsx'
-
+import PodcastCard from 'components/PodcastCard'
+import PodcastFilter from 'components/PodcastFilter'
 export const Home = () => {
     const [filter, setFilter] = useState('')
     const { data, isLoading, error } = useQuery({
