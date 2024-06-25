@@ -1,4 +1,4 @@
-import { Podcast } from '../types/podcast'
+import { Podcast } from 'types/Podcast.ts'
 
 interface ApiResponse {
     feed: {
