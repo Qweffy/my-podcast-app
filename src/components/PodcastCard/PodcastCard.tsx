@@ -1,11 +1,6 @@
-interface PodcastCardProps {
-    id: string
-    title: string
-    author: string
-    imageURL: string
-}
+import { PodcastCardProps } from './PodcastCard.types.ts'
 
-const PodcastCard = ({ title, author, imageURL }: PodcastCardProps) => {
+export const PodcastCard = ({ title, author, imageURL }: PodcastCardProps) => {
     return (
         <div className="flex flex-col items-center relative min-w-[5rem] max-w-[13rem]">
             <img
@@ -20,5 +15,3 @@ const PodcastCard = ({ title, author, imageURL }: PodcastCardProps) => {
         </div>
     )
 }
-
-export default PodcastCard

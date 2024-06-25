@@ -1,12 +1,11 @@
-import PodcastCard from '../PodcastCard/PodcastCard'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import PodcastFilter from '../PodcastFilter/PodcastFilter'
-import { Podcast } from '../../types/podcast'
-import { fetchPodcasts } from '../../api/podcasts'
-
-const Home = () => {
+import { Podcast } from '../../types/podcast.ts'
+import { fetchPodcasts } from '../../api/podcasts.ts'
+import PodcastCard from 'components/PodcastCard'
+import PodcastFilter from 'components/PodcastFilter'
+export const Home = () => {
     const [filter, setFilter] = useState('')
     const { data, isLoading, error } = useQuery({
         queryKey: ['podcasts'],
@@ -49,5 +48,3 @@ const Home = () => {
         </div>
     )
 }
-
-export default Home
