@@ -2,25 +2,23 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
-import { Podcast } from 'types/Podcast'
+import { MappedPodcast } from 'api/mappers.ts'
 import { PodcastList } from './Home.components.tsx'
 
 describe('PodcastList', () => {
     it('should render a list of podcasts correctly when provided with valid data', () => {
-        const podcasts: Podcast[] = [
+        const podcasts: MappedPodcast[] = [
             {
-                id: { attributes: { 'im:id': '1' } },
-                'im:name': { label: 'Podcast 1' },
-                'im:artist': { label: 'Author 1' },
-                // @ts-ignore
-                'im:image': [{}, {}, { label: 'image1.jpg' }],
+                id: '1',
+                title: 'Podcast 1',
+                author: 'Author 1',
+                imageURL: 'image1.jpg',
             },
             {
-                id: { attributes: { 'im:id': '2' } },
-                'im:name': { label: 'Podcast 2' },
-                'im:artist': { label: 'Author 2' },
-                // @ts-ignore
-                'im:image': [{}, {}, { label: 'image2.jpg' }],
+                id: '2',
+                title: 'Podcast 2',
+                author: 'Author 2',
+                imageURL: 'image2.jpg',
             },
         ]
 
@@ -35,7 +33,7 @@ describe('PodcastList', () => {
     })
 
     it('should handle an empty podcasts array without errors', () => {
-        const podcasts: Podcast[] = []
+        const podcasts: MappedPodcast[] = []
 
         const { container } = render(
             <MemoryRouter>

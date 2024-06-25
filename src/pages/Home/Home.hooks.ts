@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchPodcasts } from 'api/podcasts.ts'
+import { fetchPodcasts } from 'api/podcasts'
 
 export const usePodcasts = () => {
     return useQuery({
