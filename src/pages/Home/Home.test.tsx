@@ -3,8 +3,8 @@ import React from 'react'
 import { beforeEach, afterEach, expect, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Home from './Home.tsx'
 import { MemoryRouter } from 'react-router-dom'
+import { Home } from 'pages/Home/Home.tsx'
 
 const queryClient = new QueryClient()
 

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Home } from '../pages/Home/Home.tsx'
+import Home from 'pages/Home'
 
 export const AppRoutes = () => {
     return (
