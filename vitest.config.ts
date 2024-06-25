@@ -1,10 +1,15 @@
-import { defineConfig } from 'vite'
-import EnvironmentPlugin from 'vite-plugin-environment'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vitest/config'
 import path from 'path'
+import dotenv from 'dotenv'
+
+dotenv.config({ path: '.env.test' })
 
 export default defineConfig({
-    plugins: [react(), EnvironmentPlugin('all')],
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: './vitest.setup.ts',
+    },
     resolve: {
         alias: {
             components: path.resolve(__dirname, './src/components'),
