@@ -1,9 +1,6 @@
-interface PodcastFilterProps {
-    filter: string
-    setFilter: (filter: string) => void
-}
+import { PodcastFilterProps } from './PodcastFilter.types.ts'
 
-const PodcastFilter: React.FC<PodcastFilterProps> = ({ filter, setFilter }) => {
+export const PodcastFilter = ({ filter, setFilter }: PodcastFilterProps) => {
     return (
         <section className="flex justify-end w-3/5">
             <div className="flex gap-3 items-center">
@@ -19,5 +16,3 @@ const PodcastFilter: React.FC<PodcastFilterProps> = ({ filter, setFilter }) => {
         </section>
     )
 }
-
-export default PodcastFilter
