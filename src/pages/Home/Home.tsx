@@ -1,50 +1,23 @@
-import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Podcast } from '../../types/podcast.ts'
-import { fetchPodcasts } from '../../api/podcasts.ts'
-import PodcastCard from 'components/PodcastCard'
 import PodcastFilter from 'components/PodcastFilter'
+import { usePodcasts } from 'pages/Home/Home.hooks.ts'
+import { filterPodcasts } from 'pages/Home/Home.utils.ts'
+import { PodcastList } from 'pages/Home/Home.components.tsx'
+
 export const Home = () => {
     const [filter, setFilter] = useState('')
-    const { data, isLoading, error } = useQuery({
-        queryKey: ['podcasts'],
-        queryFn: fetchPodcasts,
-        staleTime: 24 * 60 * 60 * 1000,
-    })
-
-    const filteredPodcasts =
-        data?.feed?.entry.filter(
-            (podcast: Podcast) =>
-                podcast['im:name'].label.toLowerCase().includes(filter.toLowerCase()) ||
-                podcast['im:artist'].label.toLowerCase().includes(filter.toLowerCase()),
-        ) ?? []
+    const { data, isLoading, error } = usePodcasts()
 
     if (isLoading) return <div>Loading...</div>
     if (error) console.log('An error has occurred', error)
 
+    const podcasts = data?.feed?.entry ?? []
+    const filteredPodcasts = filterPodcasts(podcasts, filter)
+
     return (
         <div className="flex flex-col gap-10 items-center py-10">
             <PodcastFilter filter={filter} setFilter={setFilter} />
-            <section className="w-3/5 grid grid-cols-5 gap-6">
-                {filteredPodcasts?.map((podcast: Podcast) => {
-                    const podcastId = podcast.id.attributes['im:id']
-                    const title = podcast['im:name'].label
-                    const authorName = podcast['im:artist'].label
-                    const imageURL = podcast['im:image'][2]?.label || ''
-
-                    return (
-                        <Link key={podcastId} to={`/podcast/${podcastId}`}>
-                            <PodcastCard
-                                id={podcastId}
-                                title={title}
-                                author={authorName}
-                                imageURL={imageURL}
-                            />
-                        </Link>
-                    )
-                })}
-            </section>
+            <PodcastList podcasts={filteredPodcasts} />
         </div>
     )
 }
