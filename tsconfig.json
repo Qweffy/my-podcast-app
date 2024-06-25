@@ -12,17 +12,28 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "esModuleInterop": true,
+        "allowJs": true,
+        "types": ["jest", "node"],
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./src",
+        "paths": {
+            "components/*": ["components/*"],
+            "pages/*": ["pages/*"],
+            "types/*": ["types/*"],
+            "api/*": ["api/*"]
+        }
     },
     "include": [
         "src/**/*",
         "tailwind.config.js",
         "postcss.config.js",
         "jest.config.js",
-        "jest.setup.js"
+        "jest.setup.js",
+        "vitest.setup.ts",
+        "vite.config.ts"
     ],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
