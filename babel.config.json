@@ -4,11 +4,13 @@
         ["module-resolver", {
             "root": ["./src"],
             "alias": {
+                "api": "./src/api",
                 "components": "./src/components",
                 "context": "./src/context",
                 "pages": "./src/pages",
                 "providers": "./src/providers",
-                "types": "./src/types"
+                "types": "./src/types",
+                "utils": "./src/utils"
             }
         }]
     ]

@@ -23,9 +23,10 @@
             "components/*": ["components/*"],
             "context/*": ["context/*"],
             "pages/*": ["pages/*"],
-            "providers/*": ["providers/*"],
             "types/*": ["types/*"],
-            "api/*": ["api/*"]
+            "providers/*": ["providers/*"],
+            "api/*": ["api/*"],
+            "utils/*": ["utils/*"]
         }
     },
     "include": [
