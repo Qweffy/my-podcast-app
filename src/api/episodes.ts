@@ -19,7 +19,6 @@ export const fetchPodcastEpisodes = async (podcastId: string): Promise<MappedEpi
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const data: { contents: string } = await response.json()
-    console.log('episodiesFETCH', data)
     const parsedData = JSON.parse(data.contents) as PodcastDetailsApiResponse
     return parsedData.results.map(mapEpisode)
 }
