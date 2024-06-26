@@ -13,10 +13,12 @@ export const Home = () => {
     if (error) console.error('An error has occurred', error)
 
     return (
-        <div className="flex flex-col gap-10 items-center py-10">
+        <>
             <Header isLoading={isLoading} />
-            <PodcastFilter filter={filter} setFilter={setFilter} />
-            <PodcastList podcasts={filteredPodcasts} />
-        </div>
+            <div className="flex flex-col gap-10 items-center py-10">
+                <PodcastFilter filter={filter} setFilter={setFilter} />
+                <PodcastList podcasts={filteredPodcasts} />
+            </div>
+        </>
     )
 }
