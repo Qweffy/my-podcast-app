@@ -8,6 +8,7 @@ interface EpisodesListProps {
 }
 
 export const EpisodesList = ({ episodes, isLoading }: EpisodesListProps) => {
+    console.log('episodesinEpisodesList', episodes)
     return (
         <section className="min-w-[45rem] max-w-[50rem] flex flex-col gap-5">
             <div className="shadow-md font-bold p-2 text-xl">Episodes: {episodes.length}</div>
