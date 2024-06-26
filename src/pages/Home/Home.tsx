@@ -9,7 +9,6 @@ export const Home = () => {
     const [filter, setFilter] = useState('')
     const { podcasts, isLoading, error } = usePodcastsContext()
     const filteredPodcasts = filterPodcasts(podcasts, filter)
-    console.log('loading', isLoading)
     if (error) console.error('An error has occurred', error)
 
     return (

@@ -5,7 +5,11 @@ import { MappedEpisode } from 'types/Podcasts.ts'
 export const usePodcastDetails = (podcastId: string) => {
     return useQuery<MappedEpisode[]>({
         queryKey: ['podcastDetails', podcastId],
-        queryFn: () => fetchPodcastEpisodes(podcastId),
+        queryFn: async () => {
+            const episodes = await fetchPodcastEpisodes(podcastId)
+            console.log(`Fetched episodes for podcastIdAEGEWGHQ: ${podcastId}`, episodes)
+            return episodes
+        },
         enabled: !!podcastId,
         staleTime: 24 * 60 * 60 * 1000,
     })

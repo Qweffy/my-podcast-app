@@ -29,7 +29,7 @@ export const PodcastDetailsCard = () => {
             </div>
             <div className="border-t-2 py-3">
                 <h3 className="text-sm font-semibold">Description:</h3>
-                <p className="text-sm">{description}</p>
+                <p className="text-sm break-words">{description}</p>
             </div>
         </section>
     )
