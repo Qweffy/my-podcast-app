@@ -5,4 +5,5 @@ export const mapPodcast = (podcast: Podcast): MappedPodcast => ({
     title: podcast['im:name'].label,
     author: podcast['im:artist'].label,
     imageURL: podcast['im:image'][2]?.label || '',
+    description: podcast.summary.label,
 })
