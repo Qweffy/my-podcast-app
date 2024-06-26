@@ -7,7 +7,6 @@ export const PodcastDetails = () => {
     const { podcastId } = useParams<string>()
 
     const { data, isLoading, error } = usePodcastDetails(podcastId!)
-
     if (error) {
         console.error('An error occurred:', error)
         return <div>An error occurred</div>

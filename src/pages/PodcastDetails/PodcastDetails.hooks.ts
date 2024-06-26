@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { MappedEpisode } from 'types/Podcast'
 import { fetchPodcastEpisodes } from 'api/episodes.ts'
+import { MappedEpisode } from 'types/Podcasts.ts'
 
 export const usePodcastDetails = (podcastId: string) => {
     return useQuery<MappedEpisode[]>({

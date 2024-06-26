@@ -1,4 +1,8 @@
+import { useLocation } from 'react-router-dom'
+
 export const EpisodeDetailsCard = () => {
+    const location = useLocation()
+    console.log('location', location)
     return (
         <div className="min-w-[40rem] max-w-[45rem] shadow-md border-1 p-5 flex flex-col gap-5">
             <div>

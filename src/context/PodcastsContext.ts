@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { MappedPodcast } from 'types/Podcast.ts'
+import { MappedPodcast } from 'types/Podcasts'
 
 interface PodcastsContextProps {
     podcasts: MappedPodcast[]
@@ -14,7 +14,15 @@ export const usePodcastsContext = () => {
     if (!context) {
         throw new Error('usePodcastsContext must be used within a PodcastsProvider')
     }
-    return context
+
+    const findPodcastById = (id: string): MappedPodcast | undefined => {
+        return context.podcasts.find((podcast) => podcast.id === id)
+    }
+
+    return {
+        ...context,
+        findPodcastById,
+    }
 }
 
 export default PodcastsContext

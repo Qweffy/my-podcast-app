@@ -3,8 +3,8 @@ import { usePodcastsContext } from 'context/PodcastsContext.ts'
 
 export const PodcastDetailsCard = () => {
     const { podcastId } = useParams<string>()
-    const { podcasts } = usePodcastsContext()
-    const podcast = podcasts.find((p) => p.id === podcastId)
+    const { findPodcastById } = usePodcastsContext()
+    const podcast = findPodcastById(podcastId)
     const { imageURL, title, author, description } = podcast ?? {}
 
     return (
