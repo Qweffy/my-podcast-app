@@ -1,4 +1,4 @@
-import { MappedPodcast } from 'types/Podcast.ts'
+import { MappedPodcast } from 'types/Podcasts.ts'
 
 export const filterPodcasts = (podcasts: MappedPodcast[], filter: string): MappedPodcast[] => {
     return podcasts.filter(

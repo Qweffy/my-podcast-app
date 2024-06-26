@@ -1,4 +1,4 @@
-import { MappedEpisode, PodcastDetailsApiResponse, Episode } from 'types/Podcast'
+import { Episode, MappedEpisode, PodcastDetailsApiResponse } from 'types/Podcasts.ts'
 
 const PODCAST_EPISODES_API_URL = 'https://api.allorigins.win/get?url='
 const mapEpisode = (episode: Episode): MappedEpisode => ({
@@ -6,6 +6,8 @@ const mapEpisode = (episode: Episode): MappedEpisode => ({
     name: episode.trackName,
     releaseDate: episode.releaseDate,
     duration: episode.trackTimeMillis,
+    description: episode.description,
+    audio: episode.episodeUrl,
 })
 
 export const fetchPodcastEpisodes = async (podcastId: string): Promise<MappedEpisode[]> => {
@@ -15,10 +17,8 @@ export const fetchPodcastEpisodes = async (podcastId: string): Promise<MappedEpi
     if (!response.ok) {
         throw new Error('Network response was not ok')
     }
-
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const data: { contents: string } = await response.json()
-
     const parsedData = JSON.parse(data.contents) as PodcastDetailsApiResponse
     return parsedData.results.map(mapEpisode)
 }

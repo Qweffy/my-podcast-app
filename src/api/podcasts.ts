@@ -1,5 +1,5 @@
 import { mapPodcast } from './mappers'
-import { MappedPodcast, Podcast } from 'types/Podcast'
+import { MappedPodcast, Podcast } from 'types/Podcasts.ts'
 
 interface ApiResponse {
     feed: {

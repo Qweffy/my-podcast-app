@@ -1,6 +1,6 @@
 import PodcastCard from 'components/PodcastCard'
 import { Link } from 'react-router-dom'
-import { MappedPodcast } from 'types/Podcast.ts'
+import { MappedPodcast } from 'types/Podcasts.ts'
 
 interface PodcastListProps {
     podcasts: MappedPodcast[]

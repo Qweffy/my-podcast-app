@@ -1,5 +1,5 @@
 import { filterPodcasts } from 'pages/Home/Home.utils'
-import { MappedPodcast } from 'types/Podcast'
+import { MappedPodcast } from 'types/Podcasts.ts'
 
 describe('filterPodcasts', () => {
     it('should return podcasts that match the filter by name', () => {
@@ -9,12 +9,14 @@ describe('filterPodcasts', () => {
                 title: 'Tech Talk',
                 author: 'Tech Guru',
                 imageURL: 'image1.jpg',
+                description: '',
             },
             {
                 id: '2',
                 title: 'Health Tips',
                 author: 'Health Expert',
                 imageURL: 'image2.jpg',
+                description: '',
             },
         ]
         const filter = 'Tech'
@@ -29,18 +31,21 @@ describe('filterPodcasts', () => {
                 title: 'Tech Talk',
                 author: 'Tech Guru',
                 imageURL: 'image1.jpg',
+                description: '',
             },
             {
                 id: '2',
                 title: 'Health Tips',
                 author: 'Health Expert',
                 imageURL: 'image2.jpg',
+                description: '',
             },
             {
                 id: '3',
                 title: 'Tech News',
                 author: 'Techie',
                 imageURL: 'image3.jpg',
+                description: '',
             },
         ]
         const filter = 'Tech'
