@@ -1,11 +1,4 @@
-import { Podcast } from 'types/Podcast'
-
-export interface MappedPodcast {
-    id: string
-    title: string
-    author: string
-    imageURL: string
-}
+import { MappedPodcast, Podcast } from 'types/Podcast'
 
 export const mapPodcast = (podcast: Podcast): MappedPodcast => ({
     id: podcast.id.attributes['im:id'],

@@ -1,4 +1,4 @@
-import { QueryClient } from '@tanstack/react-query'
+import { QueryClient, QueryKey, QueryState } from '@tanstack/react-query'
 import {
     persistQueryClient,
     PersistedClient,
@@ -8,11 +8,8 @@ import {
 import localforage from 'localforage'
 
 interface CachedQuery {
-    queryKey: readonly unknown[]
-    state: {
-        data: unknown
-        [key: string]: unknown
-    }
+    queryKey: QueryKey
+    state: QueryState<unknown>
 }
 
 const queryClient = new QueryClient({
