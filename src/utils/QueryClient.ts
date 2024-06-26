@@ -5,7 +5,6 @@ import {
     Persister,
     PersistQueryClientOptions,
 } from '@tanstack/react-query-persist-client'
-import localforage from 'localforage'
 
 interface CachedQuery {
     queryKey: QueryKey
@@ -21,14 +20,24 @@ const queryClient = new QueryClient({
     },
 })
 
+const localStorageKey = 'REACT_QUERY_OFFLINE_CACHE'
+
 const localStoragePersister: Persister = {
-    persistClient: async (client: PersistedClient) => {
-        await localforage.setItem('REACT_QUERY_OFFLINE_CACHE', client)
+    persistClient: (client: PersistedClient) => {
+        try {
+            localStorage.setItem(localStorageKey, JSON.stringify(client))
+        } catch (error) {
+            console.error('Failed to persist client:', error)
+        }
     },
-    restoreClient: async () => {
-        const cache = await localforage.getItem<PersistedClient>('REACT_QUERY_OFFLINE_CACHE')
-        if (cache) {
-            return cache
+    restoreClient: () => {
+        try {
+            const cache = localStorage.getItem(localStorageKey)
+            if (cache) {
+                return JSON.parse(cache) as PersistedClient
+            }
+        } catch (error) {
+            console.error('Failed to restore client:', error)
         }
         return {
             clientState: { queries: [], mutations: [] },
@@ -36,8 +45,12 @@ const localStoragePersister: Persister = {
             buster: 'default-buster',
         } as PersistedClient
     },
-    removeClient: async () => {
-        await localforage.removeItem('REACT_QUERY_OFFLINE_CACHE')
+    removeClient: () => {
+        try {
+            localStorage.removeItem(localStorageKey)
+        } catch (error) {
+            console.error('Failed to remove client:', error)
+        }
     },
 }
 
