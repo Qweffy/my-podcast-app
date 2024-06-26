@@ -23,6 +23,7 @@ export interface Episode {
     releaseDate: string
     trackTimeMillis: number
     description: string
+    episodeUrl: string
 }
 
 export interface PodcastDetailsApiResponse {
@@ -44,4 +45,5 @@ export interface MappedEpisode {
     releaseDate: string
     duration: number
     description: string
+    audio: string
 }

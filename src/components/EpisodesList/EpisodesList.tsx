@@ -22,15 +22,15 @@ export const EpisodesList = ({ episodes, isLoading }: EpisodesListProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {episodes.map((episode) => {
-                            const { name, id, duration, releaseDate, description } = episode
+                        {episodes.slice(1).map((episode) => {
+                            const { name, id, duration, releaseDate, description, audio } = episode
                             return (
                                 <tr key={id} className="text-sm">
                                     <td className="text-cyan-600 py-2 border-b-2">
                                         <Link
                                             key={id}
                                             to={`episode/${id}`}
-                                            state={{ id, description, name }}>
+                                            state={{ id, description, name, audio }}>
                                             {name}
                                         </Link>
                                     </td>

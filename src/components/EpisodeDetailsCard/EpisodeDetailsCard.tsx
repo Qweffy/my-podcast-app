@@ -2,8 +2,7 @@ import { useLocation } from 'react-router-dom'
 
 export const EpisodeDetailsCard = () => {
     const location = useLocation()
-    const name = location.state.name
-    const description = location.state.description
+    const { name, description, audio } = location.state
 
     return (
         <div className="min-w-[40rem] max-w-[45rem] shadow-md border-2 border-gray-100 p-5 flex flex-col gap-5 rounded-md">
@@ -13,7 +12,7 @@ export const EpisodeDetailsCard = () => {
                     <i>{description || ''}</i>
                 </p>
             </div>
-            <audio controls className="w-full"></audio>
+            <audio controls src={audio} className="w-full"></audio>
         </div>
     )
 }

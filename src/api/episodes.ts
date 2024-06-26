@@ -7,6 +7,7 @@ const mapEpisode = (episode: Episode): MappedEpisode => ({
     releaseDate: episode.releaseDate,
     duration: episode.trackTimeMillis,
     description: episode.description,
+    audio: episode.episodeUrl,
 })
 
 export const fetchPodcastEpisodes = async (podcastId: string): Promise<MappedEpisode[]> => {
