@@ -1,20 +1,20 @@
-import { filterPodcasts } from 'pages/Home/Home.utils.ts'
-import { Podcast } from 'types/Podcast.ts'
+import { filterPodcasts } from 'pages/Home/Home.utils'
+import { MappedPodcast } from 'types/Podcast'
 
 describe('filterPodcasts', () => {
     it('should return podcasts that match the filter by name', () => {
-        const podcasts: Podcast[] = [
+        const podcasts: MappedPodcast[] = [
             {
-                id: { attributes: { 'im:id': '1' } },
-                'im:name': { label: 'Tech Talk' },
-                'im:artist': { label: 'Tech Guru' },
-                'im:image': [{ label: 'image1.jpg' }],
+                id: '1',
+                title: 'Tech Talk',
+                author: 'Tech Guru',
+                imageURL: 'image1.jpg',
             },
             {
-                id: { attributes: { 'im:id': '2' } },
-                'im:name': { label: 'Health Tips' },
-                'im:artist': { label: 'Health Expert' },
-                'im:image': [{ label: 'image2.jpg' }],
+                id: '2',
+                title: 'Health Tips',
+                author: 'Health Expert',
+                imageURL: 'image2.jpg',
             },
         ]
         const filter = 'Tech'
@@ -23,24 +23,24 @@ describe('filterPodcasts', () => {
     })
 
     it('should return multiple podcasts that match the filter', () => {
-        const podcasts: Podcast[] = [
+        const podcasts: MappedPodcast[] = [
             {
-                id: { attributes: { 'im:id': '1' } },
-                'im:name': { label: 'Tech Talk' },
-                'im:artist': { label: 'Tech Guru' },
-                'im:image': [{ label: 'image1.jpg' }],
+                id: '1',
+                title: 'Tech Talk',
+                author: 'Tech Guru',
+                imageURL: 'image1.jpg',
             },
             {
-                id: { attributes: { 'im:id': '2' } },
-                'im:name': { label: 'Health Tips' },
-                'im:artist': { label: 'Health Expert' },
-                'im:image': [{ label: 'image2.jpg' }],
+                id: '2',
+                title: 'Health Tips',
+                author: 'Health Expert',
+                imageURL: 'image2.jpg',
             },
             {
-                id: { attributes: { 'im:id': '3' } },
-                'im:name': { label: 'Tech News' },
-                'im:artist': { label: 'Techie' },
-                'im:image': [{ label: 'image3.jpg' }],
+                id: '3',
+                title: 'Tech News',
+                author: 'Techie',
+                imageURL: 'image3.jpg',
             },
         ]
         const filter = 'Tech'

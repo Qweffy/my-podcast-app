@@ -33,7 +33,8 @@ module.exports = {
         'react/jsx-no-useless-fragment': [1, { allowExpressions: true }],
         'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
         'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
-        '@typescript-eslint/ban-ts-comment': 'off'
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
     },
     parserOptions: {
         ecmaVersion: 'latest',

@@ -1,9 +1,9 @@
-import { Podcast } from 'types/Podcast.ts'
+import { MappedPodcast } from 'types/Podcast.ts'
 
-export const filterPodcasts = (podcasts: Podcast[], filter: string): Podcast[] => {
+export const filterPodcasts = (podcasts: MappedPodcast[], filter: string): MappedPodcast[] => {
     return podcasts.filter(
         (podcast) =>
-            podcast['im:name'].label.toLowerCase().includes(filter.toLowerCase()) ||
-            podcast['im:artist'].label.toLowerCase().includes(filter.toLowerCase()),
+            podcast.title.toLowerCase().includes(filter.toLowerCase()) ||
+            podcast.author.toLowerCase().includes(filter.toLowerCase()),
     )
 }
