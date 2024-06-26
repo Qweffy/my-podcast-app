@@ -1,19 +1,19 @@
 import PodcastCard from 'components/PodcastCard'
 import { Link } from 'react-router-dom'
-import { Podcast } from 'types/Podcast.ts'
+import { MappedPodcast } from 'types/Podcast.ts'
 
 interface PodcastListProps {
-    podcasts: Podcast[]
+    podcasts: MappedPodcast[]
 }
 
 export const PodcastList = ({ podcasts }: PodcastListProps) => {
     return (
         <section className="w-3/5 grid grid-cols-5 gap-6">
             {podcasts.map((podcast) => {
-                const podcastId = podcast.id.attributes['im:id']
-                const title = podcast['im:name'].label
-                const authorName = podcast['im:artist'].label
-                const imageURL = podcast['im:image'][2]?.label || ''
+                const podcastId = podcast.id
+                const title = podcast.title
+                const authorName = podcast.author
+                const imageURL = podcast.imageURL
 
                 return (
                     <Link key={podcastId} to={`/podcast/${podcastId}`}>
