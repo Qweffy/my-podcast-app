@@ -6,7 +6,8 @@
 3. [Installation](#installation)
 4. [Scripts](#scripts)
 5. [Development and Production Modes](#development-and-production-modes)
-6. [API Endpoints](#api-endpoints)
+6. [CI/CD Configuration](#cicd-configuration)
+7. [API Endpoints](#api-endpoints)
 
 ## Project Overview
 This project is a mini-application for listening to musical podcasts. It consists of three views:
@@ -48,7 +49,7 @@ This project leverages a variety of modern technologies and tools to ensure effi
 To install and set up the project locally, follow these steps:
 
 1. Clone the repository.
-2. Install dependencies.
+2. Install dependencies using `yarn install`.
 
 ## Scripts
 - `dev`: Starts the development server.
@@ -57,7 +58,7 @@ To install and set up the project locally, follow these steps:
 - `preview`: Previews the built project.
 - `test`: Runs the test suite.
 
-You can run these scripts using `yarn` or `npm`.
+You can run these scripts using `yarn`
 
 ## Development and Production Modes
 - **Development Mode**: Assets are served without minification for easier debugging.
@@ -65,6 +66,19 @@ You can run these scripts using `yarn` or `npm`.
 
 To start the development server, use the `dev` script. To build the project for production, use the `build` script.
 
+## CI/CD Configuration
+This project uses GitHub Actions to automate the build and test process. The workflow is configured to run on every push and pull request to the `main` branch, ensuring that the application can be built and tested in both development and production modes.
+
+### Workflow Configuration
+The CI/CD pipeline is defined in the `.github/workflows/build-and-test.yml` file. The workflow includes the following steps:
+
+1. **Checkout repository**: Clones the repository.
+2. **Setup Node.js**: Configures Node.js version 18.
+3. **Install dependencies**: Installs project dependencies using `yarn install`.
+4. **Build application**: Builds the application for both development and production modes.
+5. **Upload artifacts**: Uploads the build artifacts for verification.
+
+## API Endpoints
 The application uses the following API endpoints:
 
 - **Top 100 Podcasts**: `https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json`
