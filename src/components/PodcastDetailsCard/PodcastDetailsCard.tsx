@@ -8,7 +8,7 @@ export const PodcastDetailsCard = () => {
     const { imageURL, title, author, description } = podcast ?? {}
 
     return (
-        <section className="flex flex-col rounded-md shadow-md min-h-[10rem] border border-1 max-w-[16rem] min-w-[14rem] px-3 pt-4 gap-3">
+        <section className="flex flex-col rounded-md shadow-md min-h-[10rem] border border-1 max-w-[16rem] min-w-[16rem] px-3 pt-4 gap-3">
             <Link to={`/podcast/${podcastId}`}>
                 <img
                     src={imageURL}
