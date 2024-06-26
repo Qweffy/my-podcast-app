@@ -1,22 +1,7 @@
-import { createContext, useContext, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { usePodcasts } from 'pages/Home/Home.hooks.ts'
+import PodcastsContext from 'context/PodcastsContext.ts'
 import { MappedPodcast } from 'types/Podcast.ts'
-
-interface PodcastsContextProps {
-    podcasts: MappedPodcast[]
-    isLoading: boolean
-    error: unknown
-}
-
-const PodcastsContext = createContext<PodcastsContextProps | undefined>(undefined)
-
-export const usePodcastsContext = () => {
-    const context = useContext(PodcastsContext)
-    if (!context) {
-        throw new Error('usePodcastsContext must be used within a PodcastsProvider')
-    }
-    return context
-}
 
 export const PodcastsProvider = ({ children }: { children: ReactNode }) => {
     const { data, isLoading, error } = usePodcasts()
