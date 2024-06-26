@@ -7,7 +7,6 @@ import { usePodcastsContext } from 'context/PodcastsContext.ts'
 export const Home = () => {
     const [filter, setFilter] = useState('')
     const { podcasts, isLoading, error } = usePodcastsContext()
-
     const filteredPodcasts = filterPodcasts(podcasts, filter)
 
     if (isLoading) return <div>Loading...</div>
