@@ -1,9 +1,9 @@
 import { createContext, useContext, ReactNode } from 'react'
 import { usePodcasts } from 'pages/Home/Home.hooks'
-import { Podcast } from 'types/Podcast'
+import { MappedPodcast } from 'types/Podcast.ts'
 
 interface PodcastsContextProps {
-    podcasts: Podcast[]
+    podcasts: MappedPodcast[]
     isLoading: boolean
     error: unknown
 }
@@ -20,7 +20,7 @@ export const usePodcastsContext = () => {
 
 export const PodcastsProvider = ({ children }: { children: ReactNode }) => {
     const { data, isLoading, error } = usePodcasts()
-    const podcasts = data?.feed?.entry ?? []
+    const podcasts: MappedPodcast[] = data ?? []
 
     return (
         <PodcastsContext.Provider value={{ podcasts, isLoading, error }}>
