@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import { Home } from './Home'
-import { PodcastsProvider } from '../../PodcastsContext'
+import { PodcastsProvider } from 'providers/PodcastsProvider.tsx'
 
 const usePodcastsMock = vi.fn()
 
