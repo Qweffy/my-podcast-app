@@ -1,5 +1,5 @@
 import { createContext, useContext, ReactNode } from 'react'
-import { usePodcasts } from 'pages/Home/Home.hooks'
+import { usePodcasts } from 'pages/Home/Home.hooks.ts'
 import { MappedPodcast } from 'types/Podcast.ts'
 
 interface PodcastsContextProps {

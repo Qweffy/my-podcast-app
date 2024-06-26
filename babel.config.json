@@ -5,6 +5,7 @@
             "root": ["./src"],
             "alias": {
                 "components": "./src/components",
+                "context": "./src/context",
                 "pages": "./src/pages",
                 "providers": "./src/providers",
                 "types": "./src/types"
