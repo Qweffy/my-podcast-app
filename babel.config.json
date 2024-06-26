@@ -6,6 +6,7 @@
             "alias": {
                 "components": "./src/components",
                 "pages": "./src/pages",
+                "providers": "./src/providers",
                 "types": "./src/types"
             }
         }]
