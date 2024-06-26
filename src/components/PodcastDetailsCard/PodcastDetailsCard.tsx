@@ -2,8 +2,13 @@ import { useParams, Link } from 'react-router-dom'
 import { usePodcastsContext } from 'context/PodcastsContext.ts'
 
 export const PodcastDetailsCard = () => {
-    const { podcastId } = useParams<string>()
+    const { podcastId } = useParams<{ podcastId: string }>()
     const { findPodcastById } = usePodcastsContext()
+
+    if (!podcastId) {
+        return <p>Podcast ID is missing</p>
+    }
+
     const podcast = findPodcastById(podcastId)
     const { imageURL, title, author, description } = podcast ?? {}
 

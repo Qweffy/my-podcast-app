@@ -1,4 +1,4 @@
-import { MappedPodcast, Podcast } from 'types/Podcast'
+import { MappedPodcast, Podcast } from 'types/Podcasts.ts'
 
 export const mapPodcast = (podcast: Podcast): MappedPodcast => ({
     id: podcast.id.attributes['im:id'],

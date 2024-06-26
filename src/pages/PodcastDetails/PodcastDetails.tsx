@@ -19,7 +19,7 @@ export const PodcastDetails = () => {
             <div className="flex flex-col items-center py-10">
                 <div className="flex gap-14 items-start justify-between w-3/5">
                     <PodcastDetailsCard />
-                    <EpisodesList episodes={data ?? []} isLoading={isLoading} />
+                    <EpisodesList episodes={data ?? []} />
                 </div>
             </div>
         </>

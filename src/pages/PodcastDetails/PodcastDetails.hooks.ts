@@ -6,9 +6,7 @@ export const usePodcastDetails = (podcastId: string) => {
     return useQuery<MappedEpisode[]>({
         queryKey: ['podcastDetails', podcastId],
         queryFn: async () => {
-            const episodes = await fetchPodcastEpisodes(podcastId)
-            console.log(`Fetched episodes for podcastIdAEGEWGHQ: ${podcastId}`, episodes)
-            return episodes
+            return await fetchPodcastEpisodes(podcastId)
         },
         enabled: !!podcastId,
         staleTime: 24 * 60 * 60 * 1000,

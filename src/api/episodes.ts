@@ -17,7 +17,6 @@ export const fetchPodcastEpisodes = async (podcastId: string): Promise<MappedEpi
     if (!response.ok) {
         throw new Error('Network response was not ok')
     }
-    console.log('response', response)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const data: { contents: string } = await response.json()
     const parsedData = JSON.parse(data.contents) as PodcastDetailsApiResponse

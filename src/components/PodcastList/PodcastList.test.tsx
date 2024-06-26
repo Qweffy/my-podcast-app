@@ -2,8 +2,8 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { describe, it, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
-import { MappedPodcast } from 'types/Podcast.ts'
 import { PodcastList } from 'components/PodcastList/PodcastList.tsx'
+import { MappedPodcast } from 'types/Podcasts.ts'
 
 describe('PodcastList', () => {
     it('should render a list of podcasts correctly when provided with valid data', () => {
@@ -13,12 +13,14 @@ describe('PodcastList', () => {
                 title: 'Podcast 1',
                 author: 'Author 1',
                 imageURL: 'image1.jpg',
+                description: '',
             },
             {
                 id: '2',
                 title: 'Podcast 2',
                 author: 'Author 2',
                 imageURL: 'image2.jpg',
+                description: '',
             },
         ]
 
