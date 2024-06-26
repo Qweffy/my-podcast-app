@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite'
-import EnvironmentPlugin from 'vite-plugin-environment'
-import react from '@vitejs/plugin-react-swc'
-import path from 'path'
-
+import { defineConfig } from 'vite';
+import EnvironmentPlugin from 'vite-plugin-environment';
+import react from '@vitejs/plugin-react-swc';
+import path from 'path';
 export default defineConfig({
     plugins: [react(), EnvironmentPlugin('all')],
     resolve: {
@@ -23,4 +22,4 @@ export default defineConfig({
     esbuild: {
         target: 'esnext',
     },
-})
+});
