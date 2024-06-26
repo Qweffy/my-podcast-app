@@ -13,13 +13,16 @@ export interface Podcast {
     'im:image': {
         label: string
     }[]
+    summary: {
+        label: string
+    }
 }
-
 export interface Episode {
     trackId: number
     trackName: string
     releaseDate: string
     trackTimeMillis: number
+    description: string
 }
 
 export interface PodcastDetailsApiResponse {
@@ -32,6 +35,7 @@ export interface MappedPodcast {
     title: string
     author: string
     imageURL: string
+    description: string
 }
 
 export interface MappedEpisode {
@@ -39,4 +43,5 @@ export interface MappedEpisode {
     name: string
     releaseDate: string
     duration: number
+    description: string
 }
