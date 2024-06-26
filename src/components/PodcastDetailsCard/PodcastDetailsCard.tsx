@@ -1,20 +1,15 @@
-import { usePodcastsContext } from '../../PodcastsContext'
 import { useParams } from 'react-router-dom'
+import { usePodcastsContext } from 'context/PodcastsContext.ts'
 
 export const PodcastDetailsCard = () => {
     const { podcastId } = useParams<string>()
     const { podcasts } = usePodcastsContext()
-
-    const podcast = podcasts.find((p) => p.id.attributes['im:id'] === podcastId)
-    console.log('PODCAST', podcast)
-
-    const imageURL = podcast?.['im:image'][2].label
-    const title = podcast?.['im:name'].label
-    const author = podcast?.['im:artist'].label
+    const podcast = podcasts.find((p) => p.id === podcastId)
+    const { imageURL, title, author } = podcast ?? {}
 
     return (
         <section className="flex flex-col items-center shadow-md min-h-[10rem] border border-1 max-w-[14rem] px-3 pt-4 gap-3">
-            <img src={imageURL} className="shadow"></img>
+            <img src={imageURL} className="shadow" alt={`${title} cover`} />
             <div className="border-t-2 py-3">
                 <h3 className="text-sm font-semibold">{title}</h3>
                 <p className="text-sm">
