@@ -1,6 +1,6 @@
 import { formatDate, formatDuration } from './EpisodesList.utils'
 import { Link } from 'react-router-dom'
-import { MappedEpisode } from 'types/Podcast'
+import { MappedEpisode } from 'types/Podcasts.ts'
 
 interface EpisodesListProps {
     episodes: MappedEpisode[]
@@ -8,6 +8,7 @@ interface EpisodesListProps {
 }
 
 export const EpisodesList = ({ episodes, isLoading }: EpisodesListProps) => {
+    console.log('episodesinEpisodesList', episodes)
     return (
         <section className="min-w-[45rem] flex flex-col gap-5">
             <div className="shadow-md font-bold p-2 text-xl">Episodes: {episodes.length}</div>
@@ -29,7 +30,7 @@ export const EpisodesList = ({ episodes, isLoading }: EpisodesListProps) => {
                                         <Link
                                             key={id}
                                             to={`episode/${id}`}
-                                            state={{ id, description }}>
+                                            state={{ id, description, name }}>
                                             {name}
                                         </Link>
                                     </td>
