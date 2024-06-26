@@ -1,5 +1,5 @@
-import React from 'react'
 import { formatDate, formatDuration } from './EpisodesList.utils'
+import { Link } from 'react-router-dom'
 import { MappedEpisode } from 'types/Podcast'
 
 interface EpisodesListProps {
@@ -7,7 +7,7 @@ interface EpisodesListProps {
     isLoading: boolean
 }
 
-export const EpisodesList: React.FC<EpisodesListProps> = ({ episodes, isLoading }) => {
+export const EpisodesList = ({ episodes, isLoading }: EpisodesListProps) => {
     return (
         <section className="min-w-[45rem] flex flex-col gap-5">
             <div className="shadow-md font-bold p-2 text-xl">Episodes: {episodes.length}</div>
@@ -21,22 +21,28 @@ export const EpisodesList: React.FC<EpisodesListProps> = ({ episodes, isLoading 
                         </tr>
                     </thead>
                     <tbody>
-                        {isLoading
-                            ? 'Loading'
-                            : episodes.map((episode) => {
-                                  const { name, id, duration, releaseDate } = episode
-                                  return (
-                                      <tr key={id} className="text-sm">
-                                          <td className="text-cyan-600 py-2 border-b-2">{name}</td>
-                                          <td className="text-center py-2 border-b-2">
-                                              {formatDate(releaseDate)}
-                                          </td>
-                                          <td className="text-center py-2 border-b-2">
-                                              {formatDuration(duration)}
-                                          </td>
-                                      </tr>
-                                  )
-                              })}
+                        {episodes.map((episode) => {
+                            const { name, id, duration, releaseDate, description } = episode
+                            return (
+                                <tr key={id} className="text-sm">
+                                    <td className="text-cyan-600 py-2 border-b-2">
+                                        <Link
+                                            key={id}
+                                            to={`episode/${id}`}
+                                            state={{ id, description }}>
+                                            {name}
+                                        </Link>
+                                    </td>
+
+                                    <td className="text-center py-2 border-b-2">
+                                        {formatDate(releaseDate)}
+                                    </td>
+                                    <td className="text-center py-2 border-b-2">
+                                        {formatDuration(duration)}
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>
