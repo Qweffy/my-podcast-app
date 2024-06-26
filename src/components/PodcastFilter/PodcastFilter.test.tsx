@@ -5,6 +5,7 @@ import PodcastFilter from 'components/PodcastFilter/index.ts'
 
 describe('PodcastFilter', () => {
     it('should render correctly with default props', () => {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         const { container } = render(<PodcastFilter filter="" setFilter={() => {}} />)
         expect(container).toMatchSnapshot()
     })
